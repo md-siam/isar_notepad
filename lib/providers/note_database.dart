@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'note.dart';
+import '../models/note.dart';
 
 class NoteDatabase extends ChangeNotifier {
   static late Isar isar;

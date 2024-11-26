@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:isar_notepad/models/note_database.dart';
 import 'package:provider/provider.dart';
 
+import 'providers/note_database.dart';
 import 'pages/notes_page.dart';
 import 'theme/app_theme.dart';
 

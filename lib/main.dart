@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:isar_notepad/models/note_database.dart';
+import 'package:provider/provider.dart';
 
 import 'pages/notes_page.dart';
 
@@ -8,7 +9,12 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NoteDatabase.initialize();
 
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => NoteDatabase(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -22,6 +28,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Colors.deepPurple,
+          titleTextStyle: TextStyle(fontSize: 20, color: Colors.white),
+        ),
       ),
       home: const NotesPage(),
     );

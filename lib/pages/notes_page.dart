@@ -109,7 +109,10 @@ class _NotesPageState extends State<NotesPage> {
             padding: const EdgeInsets.all(8.0),
             child: Card(
               child: ListTile(
-                leading: Text('ID: ${note.id}'),
+                leading: Text(
+                  'ID: ${note.id}',
+                  style: const TextStyle(fontSize: 12),
+                ),
                 title: Text(note.text),
                 trailing: Row(
                   mainAxisSize: MainAxisSize.min,

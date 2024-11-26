@@ -12,6 +12,7 @@ class NotesPage extends StatefulWidget {
 }
 
 class _NotesPageState extends State<NotesPage> {
+  bool _snackBarShown = false;
   final textController = TextEditingController();
 
   @override
@@ -36,10 +37,7 @@ class _NotesPageState extends State<NotesPage> {
                 //
                 Navigator.pop(context);
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  backgroundColor: Colors.red,
-                  content: Text("Text field is empty"),
-                ));
+                _emptyTextFieldWarning();
               }
             },
             child: const Text('Create'),
@@ -74,10 +72,7 @@ class _NotesPageState extends State<NotesPage> {
                 //
                 Navigator.pop(context);
               } else {
-                ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-                  backgroundColor: Colors.red,
-                  content: Text("Text field is empty"),
-                ));
+                _emptyTextFieldWarning();
               }
             },
             child: const Text('Update'),
@@ -137,5 +132,25 @@ class _NotesPageState extends State<NotesPage> {
         onPressed: () => createNote(),
       ),
     );
+  }
+
+  // This method will be triggered if the user's
+  // input filed is empty
+  void _emptyTextFieldWarning() {
+    if (!_snackBarShown) {
+      setState(() => _snackBarShown = true);
+
+      ScaffoldMessenger.of(context)
+          .showSnackBar(
+            const SnackBar(
+              backgroundColor: Colors.red,
+              content: Text("Text field is empty"),
+            ),
+          )
+          .closed
+          .then((_) {
+        setState(() => _snackBarShown = false);
+      });
+    }
   }
 }

@@ -2,18 +2,27 @@
 
 This app show how to perform a CRUD operation using Isar database.
 
-## Getting Started
+## Packages
 
-This project is a starting point for a Flutter application.
+Add these third party packages to your pubspec.yaml file. For more information follow the official documentation in this URL: https://isar-community.dev/v3/tutorials/quickstart.html
 
-A few resources to get you started if this is your first Flutter project:
+```yaml
+    dependencies:
+    path_provider: ^2.1.5
+    provider: ^6.1.2
+    isar:
+        hosted: https://pub.isar-community.dev
+        version: ^3.1.8
+    isar_flutter_libs:
+        hosted: https://pub.isar-community.dev
+        version: ^3.1.8
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    dev_dependencies:
+    build_runner: ^2.4.13
+    isar_generator:
+        hosted: https://pub.isar-community.dev
+        version: ^3.1.8
+```
 
 ## Build Runner Command
 
